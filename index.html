@@ -1,0 +1,289 @@
+<html>
+  <head>
+    <title>Protocolos de roteamento em redes sem fio</title>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+		<div class="header">
+      <a href="javascript:void(0)" onclick="openCloseNavBar()"><img class="header-logo" src="img/toggl.png"></a>
+      <p>Protocolos de roteamento em redes sem fio</p>
+		</div>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" onclick="contentInicio()">Início</a>
+      <br>
+      <a href="javascript:void(0)" onclick="contentIntro()">Introdução</a>
+      <br>
+      <a href="javascript:void(0)" onclick="contentDesafios()">Desafios de roteamento e problemas de design</a>
+      <br>
+      <a href="javascript:void(0)" onclick="contentClassificacao()">Classificação dos protocolos de roteamento</a>
+      <br>
+      <a href="javascript:void(0)" onclick="contentGAF()">O protocolo GAF</a>
+      <br>
+      <a href="javascript:void(0)" onclick="contentLEACH()">O protocolo LEACH</a>
+      <br>
+      <a href="javascript:void(0)" onclick="contentConclusao()">Conclusão</a>
+    </div>
+        
+    <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+    <div id="main" class="main" style="margin-left: 250px;">
+      <div id="inicio">
+      </div>
+
+      <div id="intro" style="display: none;">
+        <b>Introdução</b>
+        <p>
+          Protocolos de roteamento consistem em selecionar o caminho mais adequado para os dados trafegarem de uma origem até um destino.
+          Esse processo é deveras complexo, uma vez que pode depender de múltiplas variáveis, incluindo tipos de redes, características
+          dos canais e métricas de performance.
+        </p>
+
+        <p>
+          Dados coletados por sensores em uma WSN (Wireless Sensor Networks) geralmente é encaminhado a um gateway que conecta o sensor com
+          outra(s) rede(s) onde o dado poderá ser coletado, analisado e ações poderão ser tomadas.
+        </p>
+
+        <p>
+          Em WSNs pequenas, os sensores poderiam se comunicar diretamente com o gateway, essas comunicações denominadas one-hop. Porém, 
+          em aplicações de larga escala, o espalhamento geográfico dos sensores não permite essa comunicação direta, implicando na 
+          necessidade de utilização de nós (sensores) intermediários para realizar essa troca de mensagens, essas denominadas multi-hop.
+        </p>
+
+        <p>
+          Nos casos de comunicação multi-hop, os sensores não apenas produzem e enviam dados como também servem de rota para outros 
+          sensores até o gateway. O processo para encontrar um caminho adequado do nó de origem até o nó de destino, também chamado de 
+          roteamento, pode ser um tanto problemático em redes desse tipo.
+        </p>
+      </div>
+
+      <div id="desafios" style="display: none;">
+        <b>Desafios de roteamento e problemas de design</b>
+        
+        <p>
+          Apesar das inúmeras aplicações para WSNs, essas possuem múltiplas restrições, como baixo poder de processamento, 
+          fornecimento de energia reduzido, banda curta de transmissão entre os nós, dentre outros. Uma lista não exaustiva 
+          de desafios de roteamento em WSNs pode ser encontrada a seguir:
+        </p>
+
+        <ul>
+          <li>
+              <b>Implantação de nós:</b>
+              <p>
+                O processo de acrescentar nós a uma WSN pode ser problemático, uma vez que não necessariamente 
+                sua distribuição geográfica será equilibrada, portanto, algoritmos de agrupamento poderiam ser utilizados para 
+                otimizar as comunicações. No entanto, tais métodos são custosos devido ao baixo poder de processamento disponível 
+                e energia limitada;
+              </p>
+          </li>
+          <li>
+            <b>Economia de energia:</b>
+            <p>
+              É fato que, apesar de ter que economizar energia, os sensores deverão funcionar de maneira 
+              acurada, além de, em redes multi-hop, serem também intermediários no roteamento. Portanto, esse equilíbrio torna-se complexo, 
+              ainda mais levando em consideração que, no caso de falha de energia em algum nó, a topologia da rede teria de se alterar;
+            </p>
+          </li>
+          <li>
+            <b>Heterogeneidade dos nós:</b>
+            <p>
+              Em aplicações reais de WSNs, os nós pertencentes a ela não são iguais, tanto em tipo de 
+              dado coletado quanto em especificações técnicas. Isso implica em novas variáveis para os protocolos de roteamento, como 
+              capacidade computacional de cada nó, assim como os tipos diferentes de dados poderiam implicar na necessidade de implementação 
+              de algum algoritmo de Qos (Quality of Service);
+            </p>
+          </li>
+          <li>
+            <b>Tolerância a falhas:</b>
+            <p>
+              Como previamente citado, nós podem falhar por falta de energia, porém também por inúmeros motivos. 
+              As redes de sensores sem fio devem ser resilientes a esse tipo de evento, e isso nem sempre é trivial;
+            </p>
+          </li>
+          <li>
+            <b>Escalabilidade:</b>
+            <p>
+              Os protocolos de roteamento devem ser escaláveis, ou seja, permitir grandes quantidades de sensores 
+              e eventuais grandes massas de dados, ainda que esteja inserido em um ambiente cheio de limitações;
+            </p>
+          </li>
+          <li>
+            <b>Segurança:</b>
+            <p>
+              Ainda inseridos em ambiente limitado, protocolos de roteamento para WSNs devem garantir minimamente a 
+              integridade e autenticidade dos dados, uma vez que esses podem ser sensíveis ou sua modificação pode implicar em desastres.
+            </p>
+          </li>
+          <li>
+            <b>Cobertura:</b>
+            <p>
+              Cada nó inserido na rede possui uma certa cobertura do ambiente, essa vinculada também à sua precisão. 
+              Os protocolos de roteamento para esse tipo de aplicação deveriam também levar em consideração a área de cobertura dos 
+              sensores e, dessa forma, tentar otimizar a massa de dados.
+            </p>
+          </li>
+        </ul>
+
+      </div>
+
+      <div id="classificacao" style="display: none;">
+        <b>Classificação dos protocolos de roteamento</b>
+
+        <p>
+          Existem infinitas maneiras de classificar protocolos de roteamento para WSNs. Neste trabalho, optamos por separá-los em quatro 
+          conjuntos, conforme a seguir:
+        </p>
+
+        <ul>
+
+          <li>
+            <b>Centrado em nó (Hierárquico)</b>
+            <p>
+              Em protocolos de roteamento centrados em nó, o maior foco para tomadas de decisão tem relação com as características de 
+              cada sensor, ou seja, suas especificações técnicas. Um exemplo dessa classe é o LEACH (Low Energy Adaptive Clustering Hierarchy).
+            </p>
+            <p>
+              O LEACH é um protocolo de roteamento que organiza os sensores de forma que os custos de energia sejam igualmente distribuídos 
+              pela rede. Nele, múltiplos grupos são produzidos, onde cada grupo possui um head, que serve de rota para os sensores do grupo.
+            </p>
+          </li>
+
+          <li>
+            <b>Centrado em dados</b>
+            <p>
+              Na maioria das WSNs, o dado é muito mais valioso do que os nós em si. Portanto, protocolos de roteamento centrados em dados focam
+               na transmissão dos dados. Um exemplo dessa classe é o SPIN (Sensor Protocol for Information via Negotiation).
+            </p>
+            <p>
+              O SPIN é utilizado para remover deficiências como inundações e gossiping (comunicação par-a-par entre todos os nós da rede), que 
+              ocorrem em outros protocolos. Nele, são enviadas mensagens de aviso, contendo informação dos metadados de cada sensor e, a partir 
+              disso, nós interessados poderiam realizar requisições para essas fontes de um tipo de dado específico.
+            </p>
+          </li>
+
+          <li>
+            <b>Protocolos baseados em localização</b>
+            <p>
+              Protocolos de roteamento para redes de sensores sem fio, em sua maioria, exigem informações de localização dos sensores(nós). 
+              Em muitos casos, essas informações são necessárias para calcular a distância entre dois nós específicos para estimar o consumo de 
+              energia. Desde então, não há esquema de endereçamento para a rede de sensores como o endereço IP, o sensores são distribuídos 
+              espacialmente em uma região e as informações de localização podem ser utilizadas para o roteamento de dados em uma região de energia, 
+              eficientemente.
+            </p>
+            <p>
+              Podemos citar, como exemplo de protocolo de baseado em localização, o GAF(Geographic adaptive fidelity). O GAF é um algoritmo de 
+              roteamento projetado principalmente para redes ad hoc para celulares, podendo ser aplicados a redes de sensores. o GAF desativa 
+              nós desnecessários da rede sem afetar o nível de fidelidade da mesma, o que implica em uma economia de energia.
+            </p>
+          </li>
+
+          <li>
+            <b>Baseados em fluxo de rede e QoS</b>
+            <p>
+              Alguns protocolos seguem uma abordagem ligeiramente diferente tais quais fluxo de rede e QoS. As rotas pode ser modeladas e 
+              resolvidas como um problema de fluxo de rede. Protocolos com reconhecimento de QoS consideram requisitos de atraso de ponta a 
+              ponta para configurar os caminhos na rede de sensores. Podemos citar como exemplo o SAR(Sequential assignment routing) e o algoritmo 
+              de Chang e Tassiulas.
+            </p>
+            <p>
+              Chang e Tassiulas apresentam uma solução para o problema de roteamento em rede de sensores com base em uma abordagem de fluxo de 
+              rede. Esta abordagem tem como objetivo maximizar a vida útil da rede, definindo cuidadosamente o custo do link como um função da 
+              energia restante do nó e da energia necessária para a transmissão usando este link.
+            </p>
+            <p>
+              O SAR foi o primeiro protocolo para redes de sensores que incluiu a noção de QoS em suas decisões de roteamento. Este protocolo 
+              possui uma abordagem “multi-path” orientada por tabela para alcançar eficiência energética e tolerância a falhas. O SAR cria ávores 
+              enraizadas em um salto vizinho ao coletor tomando métricas de QoS, recursos energéticos em cada caminho e nível de prioridade de cada 
+              pacote em consideração. Usando tais árvores criadas, diversos caminhos do coletor ao nó são formados.
+            </p>
+          </li>
+        </ul>
+        
+      </div>
+
+      <div id="gaf" style="display: none;">
+        <b>GAF - Geographic Adaptive Fidelity</b>
+        <p>
+          Como dito anteriormente, o GAF desativa nós desnecessários na rede sem afetar o nível de fidelidade de roteamento, formando uma rede 
+          virtual para a área coberta. Cada nó usa seu indicador de localização GPS para associar-se a um ponto da rede virtual. Nós associados 
+          ao mesmo ponto na rede são considerados equivalentes em temor de custo de roteamento do pacotes. Tal equivalência é utilizada para 
+          manter alguns nós de uma área de rede em suspensão para economia de energia. Desta forma, o GAF pode aumentar significativamente a 
+          vida útil da rede a medida que o número de nós aumenta.
+        </p>
+        <p>
+          De acordo com a figura abaixo, retirada de [Kemal Akkaya *, Mohamed Younis, A survey on routing protocols for wireless sensor networks], 
+          o nó 1 pode alcançar os nós 2, 3 e 4; assim como os nós 2,3 e 4. Como 2,3 e 4 estão em uma mesma área de rede, são considerados 
+          equivalentes e dois deles podem ser suspensos.
+        </p>
+        <center>
+          <img style="height: 300px;"src="img/gaf1.jpeg">
+        </center>
+        <p>
+          Para o balanceamento de carga, os nós mudam de estado de suspenso para ativo em turnos. Há três estados definidos no GAF: discovery, 
+          ativo e suspenso. Discovery é usado para determinar os vizinhos na rede, suspenso para quando o sensor estiver desligado e ativo para 
+          quando o sensor estiver em funcionamento. A transição de estados no GAF pode ser vista na figura abaixo, retirada do mesmo artigo supra citado.
+        </p>
+        <center>
+          <img style="height: 300px;"src="img/gaf2.png">
+        </center>
+        <p>
+          O tempo de suspensão de cada nó depende da aplicação e dos parâmetros relacionados são modificados de acordo com a duração do processo de 
+          roteamento. Cada nó estima seu tempo de deixar a rede e envia essa informação aos nós vizinhos. Os vizinhos em suspensão ajustam seu tempo 
+          de inatividade de acordo com a informação recebida mantendo a fidelidade de roteamento da rede. Um nó suspenso é ativado antes que um nó 
+          ativo seja suspenso. Esta técnica é chamada de mobilidade de nós, o GAF pode ser implementado para não mobilidade(GAF-basic) e para 
+          mobilidade (GAF-mobility adaptation).
+        </p>
+        <p>
+          Para manter a rede conectada, o GAF mantém sempre um nó em modo ativo em cada região da rede virtual. O GAF funciona pelo menos tão bem 
+          quanto um protocolo de roteamento convencional de redes ad hoc em termos de latência e perda de pacote, também aumenta a vida útil da rede 
+          economizando energia. Embora seja baseado em localização, o GAF também pode ser considerado um  protocolo hierárquico, onde os clusters são 
+          baseados em localização geográfica. Em cada área de rede, um nó atua como líder transmitindo os dados para outros nós. Porém, o líder não 
+          faz agregação ou fusão como nos demais protocolos hierárquicos.
+        </p>
+      </div>
+
+      <div id="leach" style="display: none;">
+        <b>LEACH - Low-Energy Adaptive Clustering Hierarchy</b>
+        <p>
+          Como dito anteriormente, o LEACH é um protocolo de roteamento que organiza os sensores de forma que os custos de energia sejam igualmente distribuídos 
+          pela rede. Seu objetivo é reduzir o consumo de energia necessário para criar e manter grupos de sensores de forma a aumentar a vida (tempo 
+          de bateria) de uma rede de sensores sem fio.
+        </p>
+        <p>
+          Por ser um protocolo hierárquico, os nós transmitem para <i>cluster heads</i>, que seriam análogos a um gateway para cada grupo de sensores. Esse
+          <i>cluster head</i>, doravante denominado head, faz a agregação e comprime os dados, enviando-os para a estação base (ou gateway). Cada nó usa um
+          algoritmo estocástico em cada rodada para determinar se ele se tornará um head nessa rodada. O LEACH assume que cada nó tem poder de transmissão 
+          suficiente para alcançar diretamente a estação base.
+        </p>
+        <center>
+          <img style="height: 400px;"src="img/leach1.png">
+        </center>
+        <p>
+          Nós que se tornaram heads não poderão ser heads por N rodadas, sendo N a porcentagem desejada de heads. Então, cada nó tem a probabilidade de 1/N de 
+          se tornar head de novo. No final de cada rodada, cada nó que não é head seleciona o head mais próximo e se une ao grupo dele. O head então agenda 
+          eventos de transmissão de dados para cada nó no grupo.
+        </p>
+        <p>
+          Na imagem abaixo é mostrado como o processo de seleção de heads é realizado levando em consideração a energia residual de cada nó:
+        </p>
+        <center>
+          <img style="height: 400px;"src="img/leach2.gif">
+        </center>
+        <p>
+          Dessa forma, nós com pouca energia residual não se tornam heads, evitando gasto de energia excessivo e balanceando o uso de energia na rede. Apesar
+          de realizar um bom balanceamento de carga de energia na rede, o LEACH falha quando nem todos os nós possuem capacidade de alcance direto ao gateway,
+          uma vez que ainda não implementa mecanismos de resiliência a esses eventos.
+        </p>
+      </div>
+
+      <div id="conclusao" style="display: none;">
+        <b>Conclusão</b>
+        <p>
+            O roteamento de redes de sensores sem fio possui muitas particularidades e restrições. Abordamos neste trabalho características e 
+            técnicas utilizadas atualmente neste tipo de rede. É possível de visualizar que, apesar das dificuldades, muitos protocolos com boa performance  
+            puderam ser desenvolvidos. Certamente há ainda desafios e problemas a serem resolvidos. Por ser um assunto muito vasto e em constante aprimoramento
+            e pesquisa, nosso trabalho se resumiu a menores partes da área, para prover uma visão geral. 
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
