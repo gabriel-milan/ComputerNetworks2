@@ -20,6 +20,7 @@ function contentInicio () {
     document.getElementById("gaf").style.display = "none";
     document.getElementById("leach").style.display = "none";
     document.getElementById("conclusao").style.display = "none";
+    document.getElementById("bibliografia").style.display = "none";
 }
 
 function contentIntro () {
@@ -30,6 +31,7 @@ function contentIntro () {
     document.getElementById("gaf").style.display = "none";
     document.getElementById("leach").style.display = "none";
     document.getElementById("conclusao").style.display = "none";
+    document.getElementById("bibliografia").style.display = "none";
 }
 
 function contentDesafios () {    
@@ -40,6 +42,7 @@ function contentDesafios () {
     document.getElementById("gaf").style.display = "none";
     document.getElementById("leach").style.display = "none";
     document.getElementById("conclusao").style.display = "none";
+    document.getElementById("bibliografia").style.display = "none";
 }
 
 function contentClassificacao () {
@@ -50,6 +53,7 @@ function contentClassificacao () {
     document.getElementById("gaf").style.display = "none";
     document.getElementById("leach").style.display = "none";
     document.getElementById("conclusao").style.display = "none";    
+    document.getElementById("bibliografia").style.display = "none";
 }
 
 function contentGAF () {
@@ -60,6 +64,7 @@ function contentGAF () {
     document.getElementById("gaf").style.display = "block";
     document.getElementById("leach").style.display = "none";
     document.getElementById("conclusao").style.display = "none";
+    document.getElementById("bibliografia").style.display = "none";
 }
 
 function contentLEACH () {
@@ -70,6 +75,7 @@ function contentLEACH () {
     document.getElementById("gaf").style.display = "none";
     document.getElementById("leach").style.display = "block";
     document.getElementById("conclusao").style.display = "none";
+    document.getElementById("bibliografia").style.display = "none";
 }
 
 function contentConclusao () {
@@ -80,6 +86,18 @@ function contentConclusao () {
     document.getElementById("gaf").style.display = "none";
     document.getElementById("leach").style.display = "none";
     document.getElementById("conclusao").style.display = "block";
+    document.getElementById("bibliografia").style.display = "none";
+}
+
+function contentBibliografia () {
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("desafios").style.display = "none";
+    document.getElementById("classificacao").style.display = "none";
+    document.getElementById("gaf").style.display = "none";
+    document.getElementById("leach").style.display = "none";
+    document.getElementById("conclusao").style.display = "none";
+    document.getElementById("bibliografia").style.display = "block";
 }
 
 function openImage () {
