@@ -105,7 +105,7 @@
               Em aplicações reais de WSNs, os nós pertencentes a ela não são iguais, tanto em tipo de 
               dado coletado quanto em especificações técnicas. Isso implica em novas variáveis para os protocolos de roteamento, como 
               capacidade computacional de cada nó, assim como os tipos diferentes de dados poderiam implicar na necessidade de implementação 
-              de algum algoritmo de Qos (Quality of Service);
+              de algum algoritmo de QoS (Quality of Service);
             </p>
           </li>
           <li>
@@ -152,7 +152,7 @@
         <ul>
 
           <li>
-            <b>Centrado em nó (Hierárquico)</b>
+            <b>Centrado em nó (hierárquico)</b>
             <p>
               Em protocolos de roteamento centrados em nó, o maior foco para tomadas de decisão tem relação com as características de 
               cada sensor, ou seja, suas especificações técnicas. Um exemplo dessa classe é o LEACH (Low Energy Adaptive Clustering Hierarchy).
@@ -179,15 +179,15 @@
           <li>
             <b>Protocolos baseados em localização</b>
             <p>
-              Protocolos de roteamento para redes de sensores sem fio, em sua maioria, exigem informações de localização dos sensores(nós). 
+              Protocolos de roteamento para redes de sensores sem fio, em sua maioria, exigem informações de localização dos sensores (nós). 
               Em muitos casos, essas informações são necessárias para calcular a distância entre dois nós específicos para estimar o consumo de 
               energia. Desde então, não há esquema de endereçamento para a rede de sensores como o endereço IP, o sensores são distribuídos 
               espacialmente em uma região e as informações de localização podem ser utilizadas para o roteamento de dados em uma região de energia, 
               eficientemente.
             </p>
             <p>
-              Podemos citar, como exemplo de protocolo de baseado em localização, o GAF(Geographic adaptive fidelity). O GAF é um algoritmo de 
-              roteamento projetado principalmente para redes ad hoc para celulares, podendo ser aplicados a redes de sensores. o GAF desativa 
+              Podemos citar, como exemplo de protocolo de baseado em localização, o GAF (Geographic Adaptive Fidelity). O GAF é um algoritmo de 
+              roteamento projetado principalmente para redes ad-hoc para celulares, podendo ser aplicados a redes de sensores. O GAF desativa 
               nós desnecessários da rede sem afetar o nível de fidelidade da mesma, o que implica em uma economia de energia.
             </p>
           </li>
@@ -195,9 +195,9 @@
           <li>
             <b>Baseados em fluxo de rede e QoS</b>
             <p>
-              Alguns protocolos seguem uma abordagem ligeiramente diferente tais quais fluxo de rede e QoS. As rotas pode ser modeladas e 
+              Alguns protocolos seguem uma abordagem ligeiramente diferente, tais quais fluxo de rede e QoS. As rotas pode ser modeladas e 
               resolvidas como um problema de fluxo de rede. Protocolos com reconhecimento de QoS consideram requisitos de atraso de ponta a 
-              ponta para configurar os caminhos na rede de sensores. Podemos citar como exemplo o SAR(Sequential assignment routing) e o algoritmo 
+              ponta para configurar os caminhos na rede de sensores. Podemos citar como exemplo o SAR (Sequential Assignment Routing) e o algoritmo 
               de Chang e Tassiulas.
             </p>
             <p>
@@ -221,13 +221,13 @@
         <p>
           Como dito anteriormente, o GAF desativa nós desnecessários na rede sem afetar o nível de fidelidade de roteamento, formando uma rede 
           virtual para a área coberta. Cada nó usa seu indicador de localização GPS para associar-se a um ponto da rede virtual. Nós associados 
-          ao mesmo ponto na rede são considerados equivalentes em temor de custo de roteamento do pacotes. Tal equivalência é utilizada para 
+          ao mesmo ponto na rede são considerados equivalentes em termos de custo de roteamento do pacotes. Tal equivalência é utilizada para 
           manter alguns nós de uma área de rede em suspensão para economia de energia. Desta forma, o GAF pode aumentar significativamente a 
           vida útil da rede a medida que o número de nós aumenta.
         </p>
         <p>
           De acordo com a figura abaixo, retirada de [Kemal Akkaya *, Mohamed Younis, A survey on routing protocols for wireless sensor networks], 
-          o nó 1 pode alcançar os nós 2, 3 e 4; assim como os nós 2,3 e 4. Como 2,3 e 4 estão em uma mesma área de rede, são considerados 
+          o nó 1 pode alcançar os nós 2, 3 e 4; assim como os nós 2,3 e 4 podem alcançar o nó 5. Como 2,3 e 4 estão em uma mesma área de rede, são considerados 
           equivalentes e dois deles podem ser suspensos.
         </p>
         <center>
@@ -236,21 +236,21 @@
         <p>
           Para o balanceamento de carga, os nós mudam de estado de suspenso para ativo em turnos. Há três estados definidos no GAF: discovery, 
           ativo e suspenso. Discovery é usado para determinar os vizinhos na rede, suspenso para quando o sensor estiver desligado e ativo para 
-          quando o sensor estiver em funcionamento. A transição de estados no GAF pode ser vista na figura abaixo, retirada do mesmo artigo supra citado.
+          quando o sensor estiver em funcionamento. A transição de estados no GAF pode ser vista na figura abaixo, retirada do mesmo artigo supracitado.
         </p>
         <center>
           <img style="height: 300px;"src="img/gaf2.jpeg">
         </center>
         <p>
-          O tempo de suspensão de cada nó depende da aplicação e dos parâmetros relacionados são modificados de acordo com a duração do processo de 
+          O tempo de suspensão de cada nó depende da aplicação e os parâmetros relacionados são modificados de acordo com a duração do processo de 
           roteamento. Cada nó estima seu tempo de deixar a rede e envia essa informação aos nós vizinhos. Os vizinhos em suspensão ajustam seu tempo 
           de inatividade de acordo com a informação recebida mantendo a fidelidade de roteamento da rede. Um nó suspenso é ativado antes que um nó 
-          ativo seja suspenso. Esta técnica é chamada de mobilidade de nós, o GAF pode ser implementado para não mobilidade(GAF-basic) e para 
+          ativo seja suspenso. Esta técnica é chamada de mobilidade de nós. O GAF pode ser implementado para não mobilidade (GAF-basic) e para 
           mobilidade (GAF-mobility adaptation).
         </p>
         <p>
-          Para manter a rede conectada, o GAF mantém sempre um nó em modo ativo em cada região da rede virtual. O GAF funciona pelo menos tão bem 
-          quanto um protocolo de roteamento convencional de redes ad hoc em termos de latência e perda de pacote, também aumenta a vida útil da rede 
+          Para manter a rede conectada, o GAF mantém sempre um nó em modo ativo em cada região da rede virtual. O GAF funciona tão bem 
+          quanto um protocolo de roteamento convencional de redes ad-hoc em termos de latência e perda de pacote, também aumentando a vida útil da rede 
           economizando energia. Embora seja baseado em localização, o GAF também pode ser considerado um  protocolo hierárquico, onde os clusters são 
           baseados em localização geográfica. Em cada área de rede, um nó atua como líder transmitindo os dados para outros nós. Porém, o líder não 
           faz agregação ou fusão como nos demais protocolos hierárquicos.
