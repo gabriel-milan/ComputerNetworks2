@@ -21,6 +21,7 @@ function contentInicio () {
     document.getElementById("leach").style.display = "none";
     document.getElementById("conclusao").style.display = "none";
     document.getElementById("bibliografia").style.display = "none";
+    document.getElementById("perguntas").style.display = "none";
 }
 
 function contentIntro () {
@@ -32,6 +33,7 @@ function contentIntro () {
     document.getElementById("leach").style.display = "none";
     document.getElementById("conclusao").style.display = "none";
     document.getElementById("bibliografia").style.display = "none";
+    document.getElementById("perguntas").style.display = "none";
 }
 
 function contentDesafios () {    
@@ -43,6 +45,7 @@ function contentDesafios () {
     document.getElementById("leach").style.display = "none";
     document.getElementById("conclusao").style.display = "none";
     document.getElementById("bibliografia").style.display = "none";
+    document.getElementById("perguntas").style.display = "none";
 }
 
 function contentClassificacao () {
@@ -54,6 +57,7 @@ function contentClassificacao () {
     document.getElementById("leach").style.display = "none";
     document.getElementById("conclusao").style.display = "none";    
     document.getElementById("bibliografia").style.display = "none";
+    document.getElementById("perguntas").style.display = "none";
 }
 
 function contentGAF () {
@@ -65,6 +69,7 @@ function contentGAF () {
     document.getElementById("leach").style.display = "none";
     document.getElementById("conclusao").style.display = "none";
     document.getElementById("bibliografia").style.display = "none";
+    document.getElementById("perguntas").style.display = "none";
 }
 
 function contentLEACH () {
@@ -76,6 +81,7 @@ function contentLEACH () {
     document.getElementById("leach").style.display = "block";
     document.getElementById("conclusao").style.display = "none";
     document.getElementById("bibliografia").style.display = "none";
+    document.getElementById("perguntas").style.display = "none";
 }
 
 function contentConclusao () {
@@ -87,6 +93,7 @@ function contentConclusao () {
     document.getElementById("leach").style.display = "none";
     document.getElementById("conclusao").style.display = "block";
     document.getElementById("bibliografia").style.display = "none";
+    document.getElementById("perguntas").style.display = "none";
 }
 
 function contentBibliografia () {
@@ -98,6 +105,19 @@ function contentBibliografia () {
     document.getElementById("leach").style.display = "none";
     document.getElementById("conclusao").style.display = "none";
     document.getElementById("bibliografia").style.display = "block";
+    document.getElementById("perguntas").style.display = "none";
+}
+
+function contentPerguntas () {
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("desafios").style.display = "none";
+    document.getElementById("classificacao").style.display = "none";
+    document.getElementById("gaf").style.display = "none";
+    document.getElementById("leach").style.display = "none";
+    document.getElementById("conclusao").style.display = "none";
+    document.getElementById("bibliografia").style.display = "none";
+    document.getElementById("perguntas").style.display = "block";
 }
 
 function openImage () {

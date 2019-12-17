@@ -3,6 +3,7 @@
     <title>Protocolos de roteamento para redes de sensores sem fio</title>
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/main.css">
+    <meta charset="UTF-8">
   </head>
   <body>
 		<div class="header">
@@ -25,6 +26,8 @@
       <a href="javascript:void(0)" onclick="contentConclusao()">Conclusão</a>
       <br>
       <a href="javascript:void(0)" onclick="contentBibliografia()">Bibliografia</a>
+      <br>
+      <a href="javascript:void(0)" onclick="contentPerguntas()">Perguntas</a>
     </div>
         
     <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
@@ -334,6 +337,56 @@
           Arumugam G. S., Ponnuchamy T., EE-LEACH: development of energy-efficient LEACH Protocol for data gathering in WSN          
         </p>
       </div>
+      <div id="perguntas" style="display: none;">
+        <b>Perguntas</b>
+        <p>
+          <b>
+            1 - Como podem ser classificados os protocolos de roteamento para
+            redes de sensores sem fio ?
+          </b>
+        </p>
+        <p>
+          R: Centrados em nó, centrados em dados, baseados em localização e
+          baseados em fluxo de rede e QoS.
+        </p>
+        <p>
+          <b>
+            2 - Cite 3 desafios de roteamento ou problemas de design.
+          </b>
+        </p>
+        <p>
+          R: Implantação de nós, economia de energia, heterogeneidade dos
+          nós, tolerância a falhas, escalabilidade, segurança, cobertura.        
+        </p>
+        <p>
+          <b>
+            3 - No GAF, qual parâmetro um nó utiliza para associar-se a um ponto
+            de rede virtual ?          
+          </b>
+        </p>
+        <p>
+          R: Indicador de localização GPS.        
+        </p>
+        <p>
+          <b>
+            4 - Quando o LEACH falha ?          
+          </b>
+        </p>
+        <p>
+          R: Quando nem todos os nós possuem capacidade de alcance direto ao
+          gateway        
+        </p>
+        <p>
+          <b>
+            5 - Como o LEACH organiza o sensores na rede e qual seu objetivo ?      
+          </b>
+        </p>
+        <p>
+          R: Organiza os sensores de forma que os custos de energia sejam
+          igualmente distribuídos pela rede. Seu objetivo é reduzir o consumo de
+          energia necessário para criar e manter grupos de sensores.        
+        </p>
+    </div>
     </div>
   </body>
 </html>
